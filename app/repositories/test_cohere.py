@@ -1,7 +1,7 @@
 import cohere
+#thêm v ở cuối
 
-
-COHERE_API_KEY = "cohere_1iicOF3a7HVVo7dO9QYAVftDL2C34qxxhpvTrgy60C1oov"
+COHERE_API_KEY = "cohere_1iicOF3a7HVVo7dO9QYAVftDL2C34qxxhpvTrgy60C1oo"
 
 
 def main():

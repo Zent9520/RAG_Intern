@@ -1,7 +1,7 @@
 import google.generativeai as genai
 
-
-GOOGLE_API_KEY = "AIzaSyBmu4sInyBV3jSHSGRA2bdjW_kDf1wsZ_A"
+#trừ 1 A cuối
+GOOGLE_API_KEY = "AIzaSyBmu4sInyBV3jSHSGRA2bdjW_kDf1wsZ_AA"
 
 
 def main():
