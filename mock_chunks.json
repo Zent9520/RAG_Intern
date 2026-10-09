@@ -1,0 +1,76 @@
+[
+  {
+    "chunk_id": "chunk_1",
+
+    "entities": [
+      {
+        "name": "nhân sự",
+        "type": "Person",
+        "description": "Người tham gia chương trình và nhận các khoản phụ cấp liên quan."
+      },
+      {
+        "name": "Báo động Đỏ",
+        "type": "Other",
+        "description": "Danh sách nhân sự không được phép tham gia chương trình hoặc nhận phụ cấp."
+      },
+      {
+        "name": "hệ thống",
+        "type": "System",
+        "description": "Hệ thống tự động từ chối các đơn của nhân sự thuộc danh sách Báo động Đỏ."
+      }
+    ],
+
+    "relationships": [
+      {
+        "source": "nhân sự",
+        "target": "Báo động Đỏ",
+        "description": "Nhân sự không được nằm trong danh sách Báo động Đỏ."
+      },
+      {
+        "source": "hệ thống",
+        "target": "Báo động Đỏ",
+        "description": "Hệ thống kiểm tra danh sách Báo động Đỏ."
+      }
+    ]
+  },
+
+  {
+    "chunk_id": "chunk_2",
+
+    "entities": [
+      {
+        "name": "Nguyễn Thị B",
+        "type": "Person",
+        "description": "Nhân sự thuộc HR."
+      },
+      {
+        "name": "nhân sự",
+        "type": "Person",
+        "description": "Khái niệm nhân sự chung."
+      },
+      {
+        "name": "Marketing",
+        "type": "Department",
+        "description": "Phòng Marketing."
+      }
+    ],
+
+    "relationships": [
+      {
+        "source": "Nguyễn Thị B",
+        "target": "Marketing",
+        "description": "Nguyễn Thị B đăng ký học việc tại Marketing."
+      },
+      {
+        "source": "Nguyễn Thị B",
+        "target": "nhân sự",
+        "description": "Nguyễn Thị B là một nhân sự."
+      }
+    ]
+  }
+]
+
+
+
+
+  
