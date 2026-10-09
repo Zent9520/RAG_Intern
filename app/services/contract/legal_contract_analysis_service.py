@@ -22,6 +22,7 @@ from app.services.llm.azure_openai_service import AzureOpenAIService
 class LegalContractAnalysisService:
     MAX_LEGAL_CHECKS = 8
     MAX_SEEDS_PER_METADATA_FIELD = 2
+    MAX_SEEDS = 2
     ALLOWED_METADATA_FIELDS = {
             "doc_type",
             "doc_number",
@@ -104,7 +105,7 @@ class LegalContractAnalysisService:
                 try:
                     documents = await asyncio.to_thread(
                         LegalAzureSearchRetrievalService.retrieve,
-                        check.get("metadata_seeds", check.get("seeds")),
+                        check["seeds"],
                     )
                 finally:
                     contract_split_logger.info(
@@ -259,7 +260,8 @@ class LegalContractAnalysisService:
             raise ValueError("Each legal check must be an object.")
 
         contract_text = check.get("contract_text")
-        metadata_seeds = check.get("metadata_seeds")
+        if contract_text is None:
+            contract_text = check.get("content")
 
         if (
             not isinstance(contract_text, str)
@@ -269,55 +271,62 @@ class LegalContractAnalysisService:
                 "Legal check contract_text must be a non-empty string."
             )
 
-        if not isinstance(metadata_seeds, dict):
+        # Accept the new flat "seeds" list and the older "metadata_seeds"
+        # (object or list), so the shared DB prompt can return either shape.
+        raw_seeds = check.get("seeds")
+        if raw_seeds is None:
+            raw_seeds = check.get("metadata_seeds")
+
+        seeds = cls._normalize_seeds(raw_seeds)
+
+        if not seeds:
             raise ValueError(
-                "Legal check metadata_seeds must be an object."
-            )
-
-        normalized = {}
-
-        for field, values in metadata_seeds.items():
-            if field not in cls.ALLOWED_METADATA_FIELDS:
-                continue
-
-            if not isinstance(values, list):
-                raise ValueError(
-                    f"Metadata seeds for {field} must be a list."
-                )
-
-            normalized_values = []
-            seen = set()
-
-            for value in values:
-                if not isinstance(value, str):
-                    continue
-
-                value = value.strip()
-
-                if not value or value in seen:
-                    continue
-
-                seen.add(value)
-                normalized_values.append(value)
-
-                if (
-                    len(normalized_values)
-                    >= cls.MAX_SEEDS_PER_METADATA_FIELD
-                ):
-                    break
-
-            if normalized_values:
-                normalized[field] = normalized_values
-
-        if not normalized:
-            raise ValueError(
-                "Legal check must contain at least one valid metadata seed."
+                "Legal check must contain at least one non-empty seed."
             )
 
         return {
             "contract_text": contract_text,
-            "metadata_seeds": normalized,
+            "seeds": seeds,
         }
+
+    @classmethod
+    def _normalize_seeds(cls, raw_seeds: Any) -> list[str]:
+        if isinstance(raw_seeds, str):
+            values: list[Any] = [raw_seeds]
+        elif isinstance(raw_seeds, list):
+            values = raw_seeds
+        elif isinstance(raw_seeds, dict):
+            values = []
+            for item in raw_seeds.values():
+                if isinstance(item, list):
+                    values.extend(item)
+                elif isinstance(item, str):
+                    values.append(item)
+        else:
+            raise ValueError(
+                "Legal check seeds must be a list or an object."
+            )
+
+        normalized: list[str] = []
+        seen: set[str] = set()
+
+        for value in values:
+            if not isinstance(value, str):
+                continue
+
+            value = value.strip()
+            key = value.casefold()
+
+            if not value or key in seen:
+                continue
+
+            seen.add(key)
+            normalized.append(value)
+
+            if len(normalized) >= cls.MAX_SEEDS:
+                break
+
+        return normalized
 
     @staticmethod
     def _validate_reviewer_result(

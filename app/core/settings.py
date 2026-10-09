@@ -71,6 +71,8 @@ class Settings(BaseSettings):
     BGE_QUERY_PREFIX: str | None = ""
     BGE_NORMALIZE_EMBEDDINGS: bool = True
     MICROSOFT_REDIRECT_URI: str
+    BGE_LOCAL_MODEL_PATH: str | None = None   # vd: "models/bge-m3"
+    BGE_USE_FP16: bool = False                # True nếu máy có GPU
     
     MAX_FILE_REVIEW: int = 5
     MIN: int = 0

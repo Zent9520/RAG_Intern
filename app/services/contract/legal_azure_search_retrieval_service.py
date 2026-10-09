@@ -23,7 +23,7 @@ from azure.search.documents import SearchClient
 from azure.search.documents.models import VectorizedQuery
 
 from app.core.settings import settings
-from app.services.llm.bge_embedding_service import BGEEmbeddingService
+from backend.app.services.llm.bge_embedding import BGEEmbeddingService
 
 
 class LegalAzureSearchRetrievalService:

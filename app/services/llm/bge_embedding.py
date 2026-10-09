@@ -1,20 +1,21 @@
-"""Small adapter for a future BGE embedding deployment.
+"""BGE embedding adapter.
 
-Set the BGE_* environment values when the embedding endpoint is available.
-The adapter supports the two most common endpoint contracts:
+Two modes, chosen by configuration:
 
-* ``openai``: ``POST {endpoint}`` with ``{"model": ..., "input": ...}``
-  and response ``{"data": [{"embedding": [...]}]}``.
-* ``huggingface``: ``POST {endpoint}`` with ``{"inputs": ...}`` and response
-  ``[[...]]`` (or ``{"embedding": [...]}``).
-
-If the eventual BGE service uses another contract, only this adapter needs to
-be updated; legal-review retrieval remains unchanged.
+* HTTP endpoint: used when ``BGE_EMBEDDING_ENDPOINT`` is set.
+    - ``openai``: ``POST {endpoint}`` with ``{"model": ..., "input": ...}``
+      and response ``{"data": [{"embedding": [...]}]}``.
+    - ``huggingface``: ``POST {endpoint}`` with ``{"inputs": ...}`` and
+      response ``[[...]]`` (or ``{"embedding": [...]}``).
+* Local model: used when no endpoint is set but ``BGE_LOCAL_MODEL_PATH``
+  points to a downloaded BAAI/bge-m3 directory (loaded once per process
+  with FlagEmbedding, dense vector only).
 """
 
 from __future__ import annotations
 
 import math
+import threading
 from typing import Any
 
 import httpx
@@ -26,6 +27,11 @@ class BGEEmbeddingService:
     """Create query embeddings in the same BGE vector space as the legal index."""
 
     DEFAULT_TIMEOUT_SECONDS = 30.0
+    LOCAL_MAX_LENGTH = 512
+
+    _local_model: Any = None
+    _load_lock = threading.Lock()
+    _encode_lock = threading.Lock()
 
     def __init__(self) -> None:
         self.endpoint = (settings.BGE_EMBEDDING_ENDPOINT or "").strip()
@@ -35,6 +41,7 @@ class BGEEmbeddingService:
             settings.BGE_EMBEDDING_REQUEST_FORMAT or "openai"
         ).strip().lower()
         self.query_prefix = settings.BGE_QUERY_PREFIX or ""
+        self.local_model_path = (settings.BGE_LOCAL_MODEL_PATH or "").strip()
 
     def embed(self, text: str) -> list[float]:
         """Return one BGE embedding for a retrieval query.
@@ -43,20 +50,71 @@ class BGEEmbeddingService:
         instruction, if any, used while building the legal Azure Index.
         """
 
-        if not self.endpoint:
-            raise RuntimeError(
-                "BGE_EMBEDDING_ENDPOINT is not configured. Configure the BGE "
-                "deployment before calling legal vector retrieval."
-            )
         if not text or not text.strip():
             raise ValueError("BGE embedding input must not be empty.")
 
         request_text = f"{self.query_prefix}{text.strip()}"
+
+        if self.endpoint:
+            vector = self._embed_http(request_text)
+        elif self.local_model_path:
+            vector = self._embed_local(request_text)
+        else:
+            raise RuntimeError(
+                "BGE is not configured. Set BGE_EMBEDDING_ENDPOINT (HTTP "
+                "mode) or BGE_LOCAL_MODEL_PATH (local model mode)."
+            )
+
+        if settings.BGE_NORMALIZE_EMBEDDINGS:
+            vector = self._normalize(vector)
+        return vector
+
+    @classmethod
+    def preload(cls) -> None:
+        """Optionally call at app startup so the first request is not slow."""
+
+        path = (settings.BGE_LOCAL_MODEL_PATH or "").strip()
+        if path and not (settings.BGE_EMBEDDING_ENDPOINT or "").strip():
+            cls._get_local_model(path)
+
+    # ------------------------------------------------------------------
+    # Local model mode
+    # ------------------------------------------------------------------
+    @classmethod
+    def _get_local_model(cls, model_path: str) -> Any:
+        if cls._local_model is None:
+            with cls._load_lock:
+                if cls._local_model is None:
+                    from FlagEmbedding import BGEM3FlagModel
+
+                    cls._local_model = BGEM3FlagModel(
+                        model_path,
+                        use_fp16=bool(settings.BGE_USE_FP16),
+                    )
+        return cls._local_model
+
+    def _embed_local(self, text: str) -> list[float]:
+        model = self._get_local_model(self.local_model_path)
+        with self._encode_lock:
+            output = model.encode(
+                [text],
+                batch_size=1,
+                max_length=self.LOCAL_MAX_LENGTH,
+                return_dense=True,
+                return_sparse=False,
+                return_colbert_vecs=False,
+            )
+        return [float(value) for value in output["dense_vecs"][0]]
+
+    # ------------------------------------------------------------------
+    # HTTP endpoint mode
+    # ------------------------------------------------------------------
+    def _embed_http(self, text: str) -> list[float]:
         headers = {"Content-Type": "application/json"}
         if self.api_key:
             headers["Authorization"] = f"Bearer {self.api_key}"
 
-        payload = self._build_payload(request_text)
+        payload = self._build_payload(text)
         with httpx.Client(timeout=self.DEFAULT_TIMEOUT_SECONDS) as client:
             response = client.post(
                 self.endpoint,
@@ -65,10 +123,7 @@ class BGEEmbeddingService:
             )
             response.raise_for_status()
 
-        vector = self._extract_vector(response.json())
-        if settings.BGE_NORMALIZE_EMBEDDINGS:
-            vector = self._normalize(vector)
-        return vector
+        return self._extract_vector(response.json())
 
     def _build_payload(self, text: str) -> dict[str, Any]:
         if self.request_format == "openai":
@@ -114,5 +169,5 @@ class BGEEmbeddingService:
     def _normalize(vector: list[float]) -> list[float]:
         magnitude = math.sqrt(sum(value * value for value in vector))
         if magnitude == 0:
-            raise RuntimeError("BGE endpoint returned a zero embedding vector.")
+            raise RuntimeError("BGE returned a zero embedding vector.")
         return [value / magnitude for value in vector]
