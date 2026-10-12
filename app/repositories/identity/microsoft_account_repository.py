@@ -8,7 +8,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
 )
 
-from app.models.microsoft_account import (
+from backend.app.models.identity_access.microsoft_account import (
     MicrosoftAccount,
 )
 

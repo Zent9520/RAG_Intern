@@ -4,29 +4,29 @@ from datetime import timezone
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.ai_model import (
+from app.models.ai.ai_model import (
     AIModel,
 )
 
 from uuid import UUID
 
-from app.repositories.ai_model_repository import (
+from backend.app.repositories.ai.ai_model_repository import (
     AIModelRepository,
 )
 
-from app.schemas.create_ai_model_request import (
+from backend.app.schemas.ai_configuration.create_ai_model_request import (
     CreateAIModelRequest,
 )
 
-from app.schemas.update_ai_model_request import (
+from backend.app.schemas.ai_configuration.update_ai_model_request import (
     UpdateAIModelRequest,
 )
 
-from app.schemas.get_ai_model_paged_request import (
+from backend.app.schemas.ai_configuration.get_ai_model_paged_request import (
     GetAIModelPagedRequest,
 )
 
-from app.schemas.update_ai_model_active_request import (
+from backend.app.schemas.ai_configuration.update_ai_model_active_request import (
     UpdateAIModelActiveRequest,
 )
 

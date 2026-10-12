@@ -16,7 +16,7 @@ from openai import (
 
 from app.core.settings import settings
 
-from app.repositories.rag_config_repository import (
+from backend.app.repositories.configuration.rag_config_repository import (
     WorkspaceConfigRepository
 )
 from app.enums.prompt_code import PromptCode

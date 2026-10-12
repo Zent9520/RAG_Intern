@@ -1,91 +1,47 @@
-from fastapi import (
+from fastapi import (APIRouter, Depends)
 
-    APIRouter,
-
-    Depends
-
-)
 from fastapi.responses import StreamingResponse
 
-from sqlalchemy.ext.asyncio import (
+from sqlalchemy.ext.asyncio import (AsyncSession)
 
-    AsyncSession
-
-)
-
-from app.core.database import (
-
-    get_db
-
-)
+from app.core.database import (get_db)
 
 from uuid import uuid4
 
-from app.schemas.chat_schema import (
+from backend.app.schemas.chat.chat_schema import (ChatRequest,)
 
-    ChatRequest,
+from app.services.azure.azure_search_service import (AzureSearchService)
 
-    ChatResponse
+from app.services.rag.rag_service import (RagService)
 
-)
+from app.services.message.message_service import (MessageService)
 
-from app.services.azure.azure_search_service import (
+from app.services.session_memory.session_memory_service import (SessionMemoryService)
 
-    AzureSearchService
+from app.services.rewrite_service.query_rewrite_service import (QueryRewriteService)
 
-)
+from app.services.conversation.conversation_service import (ConversationService)
 
-from app.services.rag.rag_service import (
-    RagService
-)
+from backend.app.repositories.chat.conversation_repository import (ConversationRepository)
 
-from app.services.message.message_service import (
-
- MessageService
-
-)
-
-from app.services.session_memory.session_memory_service import (
-
- SessionMemoryService
-
-)
-from app.services.session_memory.conversation_summary_service import (
-    ConversationSummaryService
-)
-
-from app.services.rewrite_service.query_rewrite_service import (
-    QueryRewriteService
-)
-from app.services.conversation.conversation_service import (
-    ConversationService
-)
-
-from app.repositories.conversation_repository import (
-    ConversationRepository
-)
-from app.enums.prompt_code import ( PromptCode
-)
+from app.enums.prompt_code import (PromptCode)
 
 import json
 
-from app.repositories.rag_config_repository import WorkspaceConfigRepository
-router = APIRouter(
+from backend.app.repositories.configuration.rag_config_repository import WorkspaceConfigRepository
 
+router = APIRouter(
     prefix=
     "/chat",
-
     tags=
     ["Chat"]
 
 )
 
-
 def sse_event(
     event: str,
     data,
 ) -> str:
-
     return (
         f"event: {event}\n"
         f"data: {json.dumps(data, ensure_ascii=False, default=str)}\n\n"
@@ -95,7 +51,7 @@ def sse_event(
 def build_internal_sources(
     chunks: list,
 ) -> list:
-
+    
     source_map = {}
 
     for chunk in chunks:

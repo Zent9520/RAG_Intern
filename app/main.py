@@ -11,78 +11,78 @@ from app.workers.meeting_analysis_worker import (
     MeetingAnalysisWorker,
 )
 
-from app.api.v1.role_router import router as role_router
-from app.api.v1.tag_router import router as tag_router
+from app.api.endpoints_v1.identity_access.role_router import router as role_router
+from app.api.endpoints_v1.identity_access.tag_router import router as tag_router
 
-from app.api.v1.tag_role_rule_router import (
+from app.api.endpoints_v1.identity_access.tag_role_rule_router import (
     router as tag_role_rule_router
 )
-from app.api.v1.policy_router import (
+from app.api.endpoints_v1.identity_access.policy_router import (
     router as policy_router
 )
-from app.api.v1.chunk_router import (
+from app.api.endpoints_v1.documents.chunk_router import (
     router as chunk_router
 )
 
-from app.api.v1.chat_router import (
+from app.api.endpoints_v1.chat.chat_router import (
     router as chat_router
 )
 
-from app.api.v1.permission_router import (
+from app.api.endpoints_v1.identity_access.permission_router import (
     router as permission_router
 )
-from app.api.v1.bot_router import (
+from app.api.endpoints_v1.chat.bot_router import (
 
     router as bot_router
 
 )
-from app.api.v1.conversation_router import (
+from app.api.endpoints_v1.chat.conversation_router import (
     router as conversation
 )
-from app.api.v1.document_router import (
+from app.api.endpoints_v1.documents.document_router import (
     router as document_router
 )
-from app.api.v1.graph_router import (
+from app.api.endpoints_v1.knowledge_graph.graph_router import (
     router as graph_router
 )
-from app.api.v1.graph_chat_router import (
+from app.api.endpoints_v1.chat.graph_chat_router import (
     router as graph_chat_router
 )
-from app.api.v1.recruitment_candidate_router import (
+from app.api.endpoints_v1.recruitment.recruitment_candidate_router import (
     router as recruitment_candidate_router
 )  
 
-from app.api.v1.model_router import (
+from app.api.endpoints_v1.configuration.model_router import (
     router as model_router
 ) 
 
-from app.api.v1.auth_router import (
+from app.api.endpoints_v1.identity_access.auth_router import (
     router as auth_router
 )
 
-from app.api.v1.planner_router import (
+from app.api.endpoints_v1.planning.planner_router import (
     router as planner_router
 )
-from app.api.v1.prompt_router import (
+from app.api.endpoints_v1.configuration.prompt_router import (
     router as prompt_router
 )
 
-from app.api.v1.contract_router import (
+from app.api.endpoints_v1.contract.contract_router import (
     router as contract_router)
 
 from app.workers.project_tracking_worker import (
     ProjectTrackingWorker,
 )
 
-from app.api.v1.workspace_source_config_router import (
+from app.api.endpoints_v1.configuration.workspace_source_config_router import (
     router as workspace_source_config_router,
 )
 
-from app.api.v1.rag_config_router import (
+from app.api.endpoints_v1.configuration.rag_config_router import (
     router as rag_config_router,
 )
 
-from app.api.v1.meeting_router import (
+from app.api.endpoints_v1.meeting.meeting_router import (
     router as meeting_router,
 )
 

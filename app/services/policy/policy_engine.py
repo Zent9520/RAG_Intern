@@ -1,9 +1,9 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
-from app.models.tag import Tag
-from app.models.role import Role
-from app.models.tag_role_rule import TagRoleRule
+from backend.app.models.identity_access.tag import Tag
+from backend.app.models.identity_access.role import Role
+from backend.app.models.identity_access.tag_role_rule import TagRoleRule
 
 
 class PolicyEngine:

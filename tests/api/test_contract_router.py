@@ -7,7 +7,7 @@ from uuid import uuid4
 from fastapi import HTTPException, UploadFile
 from starlette.responses import StreamingResponse
 
-from app.api.v1.contract_router import (
+from app.api.endpoints_v1.contract.contract_router import (
     analyze_contract_advanced,
     analyze_contract_advanced_company_rule,
     analyze_contract_advanced_legal,

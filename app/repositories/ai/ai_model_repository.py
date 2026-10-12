@@ -7,10 +7,10 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession
 )
 
-from app.models.ai_model import (
+from app.models.ai.ai_model import (
     AIModel
 )
-from app.schemas.get_ai_model_paged_request import (
+from backend.app.schemas.ai_configuration.get_ai_model_paged_request import (
     GetAIModelPagedRequest
 )
 from uuid import UUID

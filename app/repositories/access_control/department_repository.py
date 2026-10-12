@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
 )
 
-from app.models.department import (
+from backend.app.models.identity_access.department import (
     Department,
 )
 

@@ -13,7 +13,7 @@ from app.models.workspace import (
     Workspace,
 )
 
-from app.models.ai_model import (
+from app.models.ai.ai_model import (
     AIModel,
 )
 
@@ -29,7 +29,7 @@ from app.models.master_config import (
     MasterConfig,
 )
 
-from app.models.embedding_model import (
+from backend.app.models.ai.embedding_model import (
     EmbeddingModel,
 )
 
