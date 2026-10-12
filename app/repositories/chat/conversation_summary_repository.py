@@ -6,7 +6,7 @@ from sqlalchemy import (
     select
 )
 
-from app.models.conversation_summary import (
+from backend.app.models.chat.conversation_summary import (
     ConversationSummary
 )
 

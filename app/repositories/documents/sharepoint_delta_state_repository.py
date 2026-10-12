@@ -4,7 +4,7 @@ from datetime import timezone
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.sharepoint_delta_state import SharePointDeltaState
+from backend.app.models.documents.sharepoint_delta_state import SharePointDeltaState
 
 
 class SharePointDeltaRepository:

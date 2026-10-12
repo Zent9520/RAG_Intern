@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
 )
 
-from app.models.project_tracking_raw import (
+from backend.app.models.project_tracking.project_tracking_raw import (
     ProjectTrackingRaw,
 )
 
@@ -14,7 +14,7 @@ from sqlalchemy import (
     select,
 )
 
-from app.models.project_tracking_dashboard import (
+from backend.app.models.project_tracking.project_tracking_dashboard import (
     ProjectTrackingDashboard,
 )
 

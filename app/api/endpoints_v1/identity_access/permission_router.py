@@ -11,7 +11,7 @@ from app.core.database import (
     get_db,
 )
 
-from app.schemas.permission_request import (
+from backend.app.schemas.access_control.permission_request import (
     CreatePermissionRequest,
     UpdatePermissionRequest,
 )

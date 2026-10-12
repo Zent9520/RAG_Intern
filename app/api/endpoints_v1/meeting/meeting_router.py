@@ -17,7 +17,7 @@ from app.core.database import (
 from app.services.meeting.meeting_service import (
     MeetingService,
 )
-from app.schemas.analyze_meeting_request import (
+from backend.app.schemas.meetings.analyze_meeting_request import (
     AnalyzeMeetingRequest,
 )
 from app.services.azure.meeting_analysis_service import (

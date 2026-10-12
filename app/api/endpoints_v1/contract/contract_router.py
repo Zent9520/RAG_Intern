@@ -34,8 +34,8 @@ from app.services.contract.legal_chat_service import LegalChatService
 from app.services.contract.legal_contract_analysis_service import (
     LegalContractAnalysisService,
 )
-from app.schemas.contract_chat_request import ( ContractChatRequest)
-from app.schemas.contract_advanced_request import (
+from backend.app.schemas.contract.contract_chat_request import ( ContractChatRequest)
+from backend.app.schemas.contract.contract_advanced_request import (
     ContractLegalReviewRequest,
     LegalChatRequest,
 )

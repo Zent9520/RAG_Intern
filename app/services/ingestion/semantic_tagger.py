@@ -12,11 +12,11 @@ from app.services.llm.response_parser import (
     ResponseParser
 )
 
-from app.repositories.tag_repository import (
+from backend.app.repositories.access_control.tag_repository import (
     TagRepository
 )
 
-from app.repositories.role_repository import (
+from backend.app.repositories.access_control.role_repository import (
     RoleRepository
 )
 

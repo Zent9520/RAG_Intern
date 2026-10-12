@@ -10,7 +10,7 @@ from sqlalchemy import select
 from sqlalchemy import update
 from sqlalchemy import delete
 
-from app.models.ai_prompt import (
+from backend.app.models.ai.ai_prompt import (
     AIPrompt
 )
 from uuid import UUID

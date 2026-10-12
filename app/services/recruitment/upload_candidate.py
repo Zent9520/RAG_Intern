@@ -7,7 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.bad_request_exception import (
     BadRequestException,
 )
-from app.repositories.recruitment_candidate_repository import (
+from backend.app.repositories.recruitment.recruitment_candidate_repository import (
     RecruitmentCandidateRepository,
 )
 from app.utils.storage.supabase_storage import (

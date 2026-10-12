@@ -10,7 +10,7 @@ from app.core.database import get_db
 from app.services.workspace.workspace_service import (
     WorkspaceSourceConfigService,
 )
-from app.schemas.workspace_schema import UpdateAllowOverrideRequest, UpdateSourceModeRequest
+from backend.app.schemas.rag_configuration.workspace_schema import UpdateAllowOverrideRequest, UpdateSourceModeRequest
 
 router = APIRouter(
 

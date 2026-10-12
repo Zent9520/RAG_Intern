@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession
 )
 
-from app.repositories.recruitment_campaign_repository import (
+from backend.app.repositories.recruitment.recruitment_campaign_repository import (
     RecruitmentCampaignRepository
 )
 
@@ -16,15 +16,15 @@ from app.core.not_found_exception import (
     NotFoundException,
 )
 
-from app.repositories.recruitment_campaign_repository import (
+from backend.app.repositories.recruitment.recruitment_campaign_repository import (
     RecruitmentCampaignRepository,
 )
 
-from app.repositories.ai_model_repository import (
+from backend.app.repositories.ai.ai_model_repository import (
     AIModelRepository,
 )
 
-from app.repositories.rag_config_repository import (
+from backend.app.repositories.configuration.rag_config_repository import (
     WorkspaceConfigRepository,
 )
 

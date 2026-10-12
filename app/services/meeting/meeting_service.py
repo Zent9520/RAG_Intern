@@ -1,10 +1,10 @@
 from uuid import UUID
 
-from app.repositories.meeting_analysis_repository import (
+from backend.app.repositories.meetings.meeting_analysis_repository import (
     MeetingAnalysisRepository,
 )
 
-from app.repositories.meeting_transcript_repository import (
+from backend.app.repositories.meetings.meeting_transcript_repository import (
     MeetingTranscriptRepository,
 )
 

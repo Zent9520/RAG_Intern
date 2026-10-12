@@ -13,7 +13,7 @@ from app.core.settings import (
     settings,
 )
 
-from app.models.recruitment_campaign import (
+from backend.app.models.recruitment.recruitment_campaign import (
     RecruitmentCampaign,
 )
 

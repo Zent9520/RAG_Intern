@@ -1,6 +1,6 @@
 import json
 
-from app.repositories.azure_chunk_repository \
+from backend.app.repositories.documents.azure_chunk_repository \
 import AzureChunkRepository
 
 

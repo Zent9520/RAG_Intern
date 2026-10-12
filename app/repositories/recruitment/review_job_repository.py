@@ -3,7 +3,7 @@ from uuid import UUID
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.review_job import ReviewJob
+from backend.app.models.recruitment.review_job import ReviewJob
 
 
 class ReviewJobRepository:

@@ -6,7 +6,7 @@ from sqlalchemy import (
     select
 )
 
-from app.models.user_memories import (
+from backend.app.models.chat.user_memories import (
     UserMemory
 )
 

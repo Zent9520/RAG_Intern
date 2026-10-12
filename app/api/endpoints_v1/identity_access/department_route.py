@@ -11,7 +11,7 @@ from app.core.database import (
     get_db,
 )
 
-from app.schemas.department import (
+from backend.app.schemas.access_control.department import (
     DepartmentResponse,
 )
 

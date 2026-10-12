@@ -2,7 +2,7 @@ from sqlalchemy import (
     select
 )
 
-from app.models.entity import (
+from backend.app.models.knowledge_graph.entity import (
     Entity
 )
 

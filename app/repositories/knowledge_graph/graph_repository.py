@@ -7,11 +7,11 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession
 )
 
-from app.models.entity import (
+from backend.app.models.knowledge_graph.entity import (
     Entity
 )
 
-from app.models.entity_relationship import (
+from backend.app.models.knowledge_graph.entity_relationship import (
     EntityRelationship
 )
 from sqlalchemy.orm import aliased

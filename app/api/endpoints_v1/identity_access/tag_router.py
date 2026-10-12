@@ -3,12 +3,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.database import get_db
 
-from app.schemas.tag_schema import (
+from backend.app.schemas.access_control.tag_schema import (
     TagCreate, 
     TagResponse
 )
 
-from app.repositories.tag_repository import (
+from backend.app.repositories.access_control.tag_repository import (
     TagRepository
 )
 router = APIRouter(

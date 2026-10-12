@@ -10,10 +10,10 @@ from app.core.not_found_exception import (
 from app.enums.prompt_code import (
     PromptCode,
 )
-from app.repositories.ai_model_repository import (
+from backend.app.repositories.ai.ai_model_repository import (
     AIModelRepository,  
 )
-from app.repositories.ai_prompt_repository import (
+from backend.app.repositories.ai.ai_prompt_repository import (
     AIPromptRepository,
 )
 from app.services.llm.azure_openai_service import (
@@ -32,7 +32,7 @@ from app.utils.extract.document_intelligent import (
 
 
 
-from app.repositories.rag_config_repository import WorkspaceConfigRepository
+from backend.app.repositories.configuration.rag_config_repository import WorkspaceConfigRepository
 
 
 

@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class TagRoleRuleCreate(BaseModel):
     tag_id: int
     role_id: int

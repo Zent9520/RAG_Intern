@@ -8,11 +8,11 @@ from app.core.not_found_exception import (
     NotFoundException,
 )
 
-from app.repositories.recruitment_campaign_repository import (
+from backend.app.repositories.recruitment.recruitment_campaign_repository import (
     RecruitmentCampaignRepository,
 )
 
-from app.schemas.recruitment_schema import (
+from backend.app.schemas.recruitment.recruitment_schema import (
     RecruitmentCampaignResponse,
     RecruitmentCandidateResponse,
     RecruitmentCandidateDetailResponse,

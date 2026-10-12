@@ -16,7 +16,7 @@ from app.core.database import (
 from app.services.rag_config.rag_config_service import (
     WorkspaceConfigService,
 )
-from app.schemas.rag_config import UpdateWorkspaceModelConfigRequest, UpdateWorkspaceRagConfigRequest
+from backend.app.schemas.rag_configuration.rag_config import UpdateWorkspaceModelConfigRequest, UpdateWorkspaceRagConfigRequest
 
 router = APIRouter(
     prefix="/workspace-config",

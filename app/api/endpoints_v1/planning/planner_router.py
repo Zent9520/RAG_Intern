@@ -11,7 +11,7 @@ from app.api.dependencies.auth import (
     get_current_user,
 )
 
-from app.models.user_model import User
+from backend.app.models.ai.user_model import User
 
 from app.services.microsoft.planner_service import (
     PlannerService,

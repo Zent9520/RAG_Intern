@@ -8,23 +8,23 @@ from app.core.not_found_exception import (
     NotFoundException,
 )
 
-from app.models.ai_prompt import (
+from backend.app.models.ai.ai_prompt import (
     AIPrompt,
 )
 
-from app.repositories.ai_prompt_repository import (
+from backend.app.repositories.ai.ai_prompt_repository import (
     AIPromptRepository,
 )
 
-from app.schemas.create_ai_prompt_request import (
+from backend.app.schemas.ai_configuration.create_ai_prompt_request import (
     CreateAIPromptRequest,
 )
 
-from app.schemas.update_ai_prompt_request import (
+from backend.app.schemas.ai_configuration.update_ai_prompt_request import (
     UpdateAIPromptRequest,
 )
 
-from app.schemas.get_ai_prompt_paged_request import (
+from backend.app.schemas.ai_configuration.get_ai_prompt_paged_request import (
     GetAIPromptPagedRequest,
 )
 

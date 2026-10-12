@@ -1,7 +1,7 @@
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.entity import Entity
+from backend.app.models.knowledge_graph.entity import Entity
 from sqlalchemy import text
 
 from app.services.llm.openai_embedding_service import (
@@ -13,7 +13,7 @@ from sqlalchemy import (
     func
 )
 
-from app.models.entity_relationship import (
+from backend.app.models.knowledge_graph.entity_relationship import (
     EntityRelationship
 )
 

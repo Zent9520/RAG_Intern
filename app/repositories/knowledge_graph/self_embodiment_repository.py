@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession
 )
 
-from app.models.entity_relationship import (
+from backend.app.models.knowledge_graph.entity_relationship import (
     EntityRelationship
 )
 

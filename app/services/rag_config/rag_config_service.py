@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
 )
 
-from app.repositories.rag_config_repository import (
+from backend.app.repositories.configuration.rag_config_repository import (
     WorkspaceConfigRepository,
 )
 

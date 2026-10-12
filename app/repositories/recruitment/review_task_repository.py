@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.enums.review_task_status import (
     ReviewTaskStatus,
 )
-from app.models.review_task import (
+from backend.app.models.recruitment.review_task import (
     ReviewTask,
 )
 

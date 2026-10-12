@@ -11,27 +11,27 @@ from app.core.settings import settings
 
 from app.enums.prompt_code import PromptCode
 
-from app.models.meeting_analysis import (
+from backend.app.models.meetings.meeting_analysis import (
     MeetingAnalysis,
 )
 
-from app.models.meeting_transcript import (
+from backend.app.models.meetings.meeting_transcript import (
     MeetingTranscript,
 )
 
-from app.repositories.meeting_analysis_repository import (
+from backend.app.repositories.meetings.meeting_analysis_repository import (
     MeetingAnalysisRepository,
 )
 
-from app.repositories.meeting_transcript_repository import (
+from backend.app.repositories.meetings.meeting_transcript_repository import (
     MeetingTranscriptRepository,
 )
 
-from app.repositories.ai_prompt_repository import (
+from backend.app.repositories.ai.ai_prompt_repository import (
     AIPromptRepository,
 )
 
-from app.repositories.ai_model_repository import (
+from backend.app.repositories.ai.ai_model_repository import (
     AIModelRepository,
 )
 

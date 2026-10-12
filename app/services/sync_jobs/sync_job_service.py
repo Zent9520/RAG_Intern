@@ -7,11 +7,11 @@ from datetime import (
     timezone
 )
 
-from app.models.sync_jobs import (
+from backend.app.models.documents.sync_jobs import (
     SyncJob
 )
 
-from app.repositories.sync_job_repository import (
+from backend.app.repositories.documents.sync_job_repository import (
     SyncJobRepository
 )
 

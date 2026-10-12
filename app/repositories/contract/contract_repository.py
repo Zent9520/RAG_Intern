@@ -8,11 +8,11 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
 )
 
-from app.models.contract_raw import (
+from backend.app.models.contract.contract_raw import (
     ContractRaw,
 )
 
-from app.models.contract_dashboard import (
+from backend.app.models.contract.contract_dashboard import (
     ContractDashboard,
 )
 

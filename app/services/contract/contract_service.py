@@ -7,11 +7,11 @@ from app.utils.extract.document_extraction import (
     DocumentExtractor,
 )
 
-from app.repositories.ai_model_repository import (
+from backend.app.repositories.ai.ai_model_repository import (
     AIModelRepository,
 )
 
-from app.repositories.ai_prompt_repository import (
+from backend.app.repositories.ai.ai_prompt_repository import (
     AIPromptRepository,
 )
 from sqlalchemy.ext.asyncio import (
@@ -36,10 +36,10 @@ from app.core.settings import (
 
 
 
-from app.models.contract_raw import ContractRaw
-from app.repositories.contract_repository import ContractRepository
-from app.models.contract_dashboard import ContractDashboard
-from app.repositories.rag_config_repository import WorkspaceConfigRepository
+from backend.app.models.contract.contract_raw import ContractRaw
+from backend.app.repositories.contract.contract_repository import ContractRepository
+from backend.app.models.contract.contract_dashboard import ContractDashboard
+from backend.app.repositories.configuration.rag_config_repository import WorkspaceConfigRepository
 
 
 class ContractService:
@@ -287,7 +287,7 @@ Nội dung hợp đồng:
         return item
 
         
-    from app.models.contract_dashboard import (
+    from backend.app.models.contract.contract_dashboard import (
     ContractDashboard,
 )
 

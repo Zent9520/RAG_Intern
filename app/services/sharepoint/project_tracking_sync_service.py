@@ -15,15 +15,15 @@ from datetime import (
     timezone,
 )
 
-from app.models.project_tracking_raw import (
+from backend.app.models.project_tracking.project_tracking_raw import (
     ProjectTrackingRaw,
 )
 
-from app.repositories.project_tracking_raw_repository import (
+from backend.app.repositories.project_tracking.project_tracking_raw_repository import (
     ProjectTrackingRawRepository,
 )
-from app.models.project_tracking_dashboard import ProjectTrackingDashboard
-from app.repositories.project_tracking_dashboard_repository import ProjectTrackingDashboardRepository
+from backend.app.models.project_tracking.project_tracking_dashboard import ProjectTrackingDashboard
+from backend.app.repositories.project_tracking.project_tracking_dashboard_repository import ProjectTrackingDashboardRepository
 
 
 

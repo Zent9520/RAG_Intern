@@ -8,7 +8,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
 )
 
-from app.models.user_model import (
+from backend.app.models.ai.user_model import (
     User,
 )
 

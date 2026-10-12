@@ -12,7 +12,7 @@ from sqlalchemy import (
 from uuid import UUID
 from typing import Optional
 
-from app.models.conversation import (
+from backend.app.models.chat.conversation import (
     
 
  Conversation

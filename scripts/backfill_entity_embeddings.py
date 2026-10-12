@@ -4,7 +4,7 @@ from app.core.database import (
     AsyncSessionLocal
 )
 
-from app.models.entity import (
+from backend.app.models.knowledge_graph.entity import (
     Entity
 )
 

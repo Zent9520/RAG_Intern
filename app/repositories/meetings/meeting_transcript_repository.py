@@ -8,7 +8,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
 )
 
-from app.models.meeting_transcript import (
+from backend.app.models.meetings.meeting_transcript import (
     MeetingTranscript,
 )
 

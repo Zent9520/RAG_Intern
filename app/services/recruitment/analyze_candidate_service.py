@@ -12,23 +12,23 @@ from app.enums.prompt_code import (
     PromptCode,
 )
 
-from app.repositories.ai_model_repository import (
+from backend.app.repositories.ai.ai_model_repository import (
     AIModelRepository,
 )
 
-from app.repositories.ai_prompt_repository import (
+from backend.app.repositories.ai.ai_prompt_repository import (
     AIPromptRepository,
 )
 
-from app.repositories.recruitment_campaign_repository import (
+from backend.app.repositories.recruitment.recruitment_campaign_repository import (
     RecruitmentCampaignRepository,
 )
 
-from app.repositories.recruitment_candidate_repository import (
+from backend.app.repositories.recruitment.recruitment_candidate_repository import (
     RecruitmentCandidateRepository,
 )
 
-from app.repositories.recruitment_candidate_result_repository import (
+from backend.app.repositories.recruitment.recruitment_candidate_result_repository import (
     RecruitmentCandidateResultRepository,
 )
 
@@ -47,7 +47,7 @@ from app.utils.extract.document_extraction import (
 from app.utils.storage.supabase_storage import (
     SupabaseStorage,
 )
-from app.repositories.rag_config_repository import WorkspaceConfigRepository
+from backend.app.repositories.configuration.rag_config_repository import WorkspaceConfigRepository
 
 
 class AnalyzeCandidateService:

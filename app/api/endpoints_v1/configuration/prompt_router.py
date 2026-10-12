@@ -13,15 +13,15 @@ from app.core.database import (
     get_db,
 )
 
-from app.schemas.create_ai_prompt_request import (
+from backend.app.schemas.ai_configuration.create_ai_prompt_request import (
     CreateAIPromptRequest,
 )
 
-from app.schemas.update_ai_prompt_request import (
+from backend.app.schemas.ai_configuration.update_ai_prompt_request import (
     UpdateAIPromptRequest,
 )
 
-from app.schemas.get_ai_prompt_paged_request import (
+from backend.app.schemas.ai_configuration.get_ai_prompt_paged_request import (
     GetAIPromptPagedRequest,
 )
 

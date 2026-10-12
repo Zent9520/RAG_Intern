@@ -11,11 +11,11 @@ from app.core.database import (
     get_db
 )
 
-from app.repositories.chunk_repository import (
+from backend.app.repositories.documents.chunk_repository import (
     ChunkRepository
 )
 
-from app.repositories.azure_chunk_repository import (
+from backend.app.repositories.documents.azure_chunk_repository import (
     AzureChunkRepository
 )
 

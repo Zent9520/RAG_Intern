@@ -11,7 +11,7 @@ from app.core.database import (
     get_db
 )
 
-from app.repositories.role_repository import (
+from backend.app.repositories.access_control.role_repository import (
     RoleRepository
 )
 
@@ -23,7 +23,7 @@ from app.services.conversation.conversation_service import (
     ConversationService
 )
 
-from app.repositories.permission_repository import (
+from backend.app.repositories.access_control.permission_repository import (
     PermissionRepository
 )
 

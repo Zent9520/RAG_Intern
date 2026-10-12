@@ -7,7 +7,7 @@ from fastapi import (
 )
 
 
-from app.schemas.create_review_request import (
+from backend.app.schemas.recruitment.create_review_request import (
     CreateReviewRequest,
 )
 
@@ -21,14 +21,14 @@ from app.core.database import (
     get_db
 )
 
-from app.schemas.recruitment_schema import (
+from backend.app.schemas.recruitment.recruitment_schema import (
     RecruitmentCampaignCreate,
     RecruitmentCampaignResponse,
     RecruitmentCampaignCreateResponse,
     
 )
 
-from app.schemas.recruit_campaign_chat_request import (
+from backend.app.schemas.recruitment.recruit_campaign_chat_request import (
 
 RecruitmentCampaignChatRequest
 
@@ -50,7 +50,7 @@ from app.services.recruitment.upload_candidate import (
 from app.services.recruitment.analyze_candidate_service import (
     AnalyzeCandidateService,
 )
-from app.schemas.analyze_candidate_request import (
+from backend.app.schemas.recruitment.analyze_candidate_request import (
     AnalyzeCandidateRequest,
 )
 
@@ -113,7 +113,7 @@ async def analyze_candidate(
 
     return result
 
-from app.schemas.review_dto import (
+from backend.app.schemas.recruitment.review_dto import (
     ReviewResponse,
 )
 

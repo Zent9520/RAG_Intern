@@ -12,13 +12,13 @@ from app.core.contract_advanced_logging import (
     contract_split_logger,
 )
 from app.enums.prompt_code import PromptCode
-from app.repositories.ai_model_repository import (
+from backend.app.repositories.ai.ai_model_repository import (
     AIModelRepository,
 )
-from app.repositories.ai_prompt_repository import (
+from backend.app.repositories.ai.ai_prompt_repository import (
     AIPromptRepository,
 )
-from app.repositories.rag_config_repository import (
+from backend.app.repositories.configuration.rag_config_repository import (
     WorkspaceConfigRepository,
 )
 from app.services.contract.company_policy_retrieval_service import (

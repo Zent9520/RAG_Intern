@@ -24,7 +24,7 @@ from app.core.database import (
 )
 
 
-from app.schemas.conversation_schema import (
+from backend.app.schemas.chat.conversation_schema import (
 
  ConversationCreate
 
@@ -38,13 +38,13 @@ from app.services.conversation.conversation_service import (
 )
 
 
-from app.repositories.message_repository import (
+from backend.app.repositories.chat.message_repository import (
 
  MessageRepository
 
 )
 
-from app.repositories.conversation_summary_repository import (
+from backend.app.repositories.chat.conversation_summary_repository import (
 
  ConversationSummaryRepository
 

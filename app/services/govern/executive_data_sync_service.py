@@ -10,15 +10,15 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
 )
 
-from app.models.executive_data_dashboard import (
+from backend.app.models.executive_data.executive_data_dashboard import (
     ExecutiveDataDashboard,
 )
 
-from app.models.executive_data_raw import (
+from backend.app.models.executive_data.executive_data_raw import (
     ExecutiveDataRaw,
 )
 
-from app.repositories.executive_data_repository import (
+from backend.app.repositories.executive_data.executive_data_repository import (
     ExecutiveDataRepository,
 )
 
@@ -36,10 +36,10 @@ from app.services.govern.executive_data_reader_service import (
 from uuid import UUID
 
 from app.enums.prompt_code import PromptCode
-from app.repositories.ai_model_repository import AIModelRepository
-from app.repositories.ai_prompt_repository import AIPromptRepository
+from backend.app.repositories.ai.ai_model_repository import AIModelRepository
+from backend.app.repositories.ai.ai_prompt_repository import AIPromptRepository
 from app.services.llm.azure_openai_service import AzureOpenAIService
-from app.repositories.rag_config_repository import WorkspaceConfigRepository
+from backend.app.repositories.configuration.rag_config_repository import WorkspaceConfigRepository
 
 class ExecutiveDataSyncService:
 

@@ -11,7 +11,7 @@ from datetime import (
 )
 from uuid import UUID
 
-from app.schemas.microsoft_profile import (
+from backend.app.schemas.auth.microsoft_profile import (
     MicrosoftGroup,
     MicrosoftProfile,
 )

@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
 )
 
-from app.models.meeting_analysis import (
+from backend.app.models.meetings.meeting_analysis import (
     MeetingAnalysis,
 )
 

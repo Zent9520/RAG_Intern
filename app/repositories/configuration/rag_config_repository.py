@@ -9,7 +9,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession,
 )
 
-from app.models.workspace import (
+from backend.app.models.configuration.workspace import (
     Workspace,
 )
 
@@ -17,15 +17,15 @@ from app.models.ai.ai_model import (
     AIModel,
 )
 
-from app.models.workspace_model_config import (
+from backend.app.models.configuration.workspace_model_config import (
     WorkspaceModelConfig,
 )
 
-from app.models.workspace_rag_config import (
+from backend.app.models.configuration.workspace_rag_config import (
     WorkspaceRagConfig,
 )
 
-from app.models.master_config import (
+from backend.app.models.configuration.master_config import (
     MasterConfig,
 )
 

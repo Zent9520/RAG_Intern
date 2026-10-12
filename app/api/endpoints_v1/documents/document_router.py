@@ -39,7 +39,7 @@ from app.services.sharepoint.sharepoint_service import (
     SharePointService
 )
 
-from app.repositories.chunk_repository import (
+from backend.app.repositories.documents.chunk_repository import (
     ChunkRepository
 )
 
@@ -47,11 +47,11 @@ from app.services.ingestion.chunk_processor import (
     ChunkProcessor
 )
 
-from app.repositories.azure_chunk_repository import (
+from backend.app.repositories.documents.azure_chunk_repository import (
     AzureChunkRepository
 )
 
-from app.repositories.workspace_source_config_repository import (
+from backend.app.repositories.documents.workspace_source_config_repository import (
     WorkspaceSourceConfigRepository )
 
 from app.services.delta.delta_service import (
@@ -74,9 +74,9 @@ from app.core.database import (
 
 import json
 
-from app.schemas.tracking_chat_request import TrackingChatRequest
+from backend.app.schemas.project_tracking.tracking_chat_request import TrackingChatRequest
 from app.services.govern.executive_data_sync_service import ExecutiveDataSyncService
-from app.schemas.execute_schema import ExecutiveDataRequest, ExecutiveDataChatRequest
+from backend.app.schemas.rag_configuration.execute_schema import ExecutiveDataRequest, ExecutiveDataChatRequest
 
 
 router = APIRouter(

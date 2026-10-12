@@ -1,8 +1,8 @@
-from app.repositories.entity_repository import (
+from backend.app.repositories.knowledge_graph.entity_repository import (
     EntityRepository
 )
 
-from app.repositories.entity_context_repository import (
+from backend.app.repositories.knowledge_graph.entity_context_repository import (
     EntityContextRepository
 )
 
@@ -17,7 +17,7 @@ from app.services.llm.llm_factory import (
 from app.utils.json_helper import (
     JsonHelper
 )
-from app.repositories.self_embodiment_repository import (
+from backend.app.repositories.knowledge_graph.self_embodiment_repository import (
     SelfEmbodimentRepository
 )
 from app.services.llm.llm_failover_service import (

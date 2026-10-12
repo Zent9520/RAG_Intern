@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.database import get_db
 
-from app.schemas.policy_schema import (
+from backend.app.schemas.access_control.policy_schema import (
     ResolveRolesRequest,
     ResolveRolesResponse
 )

@@ -13,7 +13,7 @@ from app.api.endpoints_v1.contract.contract_router import (
     analyze_contract_advanced_legal,
     legal_chat,
 )
-from app.schemas.contract_advanced_request import (
+from backend.app.schemas.contract.contract_advanced_request import (
     ContractLegalReviewRequest,
     LegalChatRequest,
 )

@@ -1,4 +1,4 @@
-from app.repositories.graph_repository import (
+from backend.app.repositories.knowledge_graph.graph_repository import (
     GraphRepository
 )
 

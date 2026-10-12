@@ -13,19 +13,19 @@ from app.services.llm.model_service import (
     ModelsService,
 )
 
-from app.schemas.create_ai_model_request import (
+from backend.app.schemas.ai_configuration.create_ai_model_request import (
     CreateAIModelRequest,
 )
 
-from app.schemas.update_ai_model_request import (
+from backend.app.schemas.ai_configuration.update_ai_model_request import (
     UpdateAIModelRequest,
 )
 
-from app.schemas.get_ai_model_paged_request import (
+from backend.app.schemas.ai_configuration.get_ai_model_paged_request import (
     GetAIModelPagedRequest,
 )
 
-from app.schemas.update_ai_model_active_request import (
+from backend.app.schemas.ai_configuration.update_ai_model_active_request import (
     UpdateAIModelActiveRequest,
 )
 

@@ -8,7 +8,7 @@ from app.core.not_found_exception import (
     NotFoundException,
 )
 
-from app.repositories.workspace_source_config_repository import (
+from backend.app.repositories.documents.workspace_source_config_repository import (
     WorkspaceSourceConfigRepository,
 )
 

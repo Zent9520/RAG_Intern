@@ -3,7 +3,7 @@ from uuid import UUID
 
 from pydantic import BaseModel
 
-from app.schemas.microsoft_profile import MicrosoftGroup
+from backend.app.schemas.auth.microsoft_profile import MicrosoftGroup
 
 
 class LoginUserResponse(BaseModel):

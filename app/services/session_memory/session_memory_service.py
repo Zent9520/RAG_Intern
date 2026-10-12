@@ -2,7 +2,7 @@ from sqlalchemy.ext.asyncio import (
     AsyncSession
 )
 
-from app.repositories.message_repository import (
+from backend.app.repositories.chat.message_repository import (
     MessageRepository
 )
 

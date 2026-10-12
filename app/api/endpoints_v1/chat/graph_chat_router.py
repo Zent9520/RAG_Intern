@@ -11,7 +11,7 @@ from app.core.database import (
     get_db
 )
 
-from app.schemas.graph_chat_request import (
+from backend.app.schemas.chat.graph_chat_request import (
     GraphChatRequest
 )
 

@@ -12,32 +12,32 @@ from app.enums.review_task_status import (
     ReviewTaskStatus,
 )
 
-from app.schemas.create_review_request import (
+from backend.app.schemas.recruitment.create_review_request import (
     CreateReviewRequest,
 )
 
-from app.schemas.review_dto import (
+from backend.app.schemas.recruitment.review_dto import (
     ReviewResponse,
     ReviewFileResponse,
 )
 
-from app.models.review_job import (
+from backend.app.models.recruitment.review_job import (
     ReviewJob,
 )
 
-from app.models.review_task import (
+from backend.app.models.recruitment.review_task import (
     ReviewTask,
 )
 
-from app.repositories.ai_model_repository import (
+from backend.app.repositories.ai.ai_model_repository import (
     AIModelRepository,
 )
 
-from app.repositories.review_job_repository import (
+from backend.app.repositories.recruitment.review_job_repository import (
     ReviewJobRepository,
 )
 
-from app.repositories.review_task_repository import (
+from backend.app.repositories.recruitment.review_task_repository import (
     ReviewTaskRepository,
 )
 

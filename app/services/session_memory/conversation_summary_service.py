@@ -6,11 +6,11 @@ from app.services.llm.ollama_service import (
     OllamaService
 )
 
-from app.repositories.message_repository import (
+from backend.app.repositories.chat.message_repository import (
     MessageRepository
 )
 
-from app.repositories.conversation_summary_repository import (
+from backend.app.repositories.chat.conversation_summary_repository import (
     ConversationSummaryRepository
 )
 

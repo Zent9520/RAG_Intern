@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.database import get_db
 
-from app.schemas.auth import LoginResponse
+from backend.app.schemas.auth.auth import LoginResponse
 
 from app.services.auth.auth_service import AuthService
 
