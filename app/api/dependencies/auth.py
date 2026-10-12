@@ -10,9 +10,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.database import get_db
 
-from app.models.user_model import User
+from backend.app.models.ai.user_model import User
 
-from app.repositories.user_repository import (
+from backend.app.repositories.identity.user_repository import (
     UserRepository,
 )
 
